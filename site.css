@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cynthia Butler for Florida House District 75</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
+  <style>
+    :root {
+      --cb-blue:     #0d1b2e;
+      --cb-blue-mid: #1e3a5f;
+      --cb-red:      #2563eb;
+      --cb-black:    #111111;
+      --cb-white:    #ffffff;
+    }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      color: var(--cb-black);
+    }
+    h1, h2, h3, h4, h5 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
+
+    /* ── NAV ── */
+    .navbar {
+      background: var(--cb-blue) !important;
+      border-bottom: 4px solid var(--cb-red);
+    }
+    .navbar-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--cb-white) !important;
+    }
+    .nav-link {
+      color: rgba(255,255,255,0.85) !important;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.07em;
+    }
+    .nav-link:hover { color: var(--cb-white) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--cb-blue) 60%, var(--cb-blue-mid) 100%);
+      color: var(--cb-white);
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 6px;
+      background: var(--cb-red);
+    }
+    .hero-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .hero h1 span {
+      color: var(--cb-red);
+    }
+    .hero-sub {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      max-width: 540px;
+      margin-bottom: 2rem;
+    }
+    .btn-primary-cb {
+      background: var(--cb-red);
+      color: var(--cb-white);
+      border: none;
+      padding: 0.75rem 2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-primary-cb:hover { background: #1d4ed8; color: var(--cb-white); }
+    .btn-outline-cb {
+      border: 2px solid var(--cb-white);
+      color: var(--cb-white);
+      padding: 0.72rem 1.8rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-outline-cb:hover {
+      background: var(--cb-white);
+      color: var(--cb-blue);
+    }
+    .hero-photo-placeholder {
+      width: 300px;
+      height: 380px;
+      background: rgba(255,255,255,0.1);
+      border: 3px dashed rgba(255,255,255,0.3);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 1rem;
+      margin: auto;
+    }
+
+    /* ── STRIPE DIVIDER ── */
+    .stripe {
+      height: 6px;
+      background: linear-gradient(to right, var(--cb-blue) 50%, var(--cb-red) 50%);
+    }
+
+    /* ── ISSUES PREVIEW ── */
+    .section-title {
+      font-weight: 900;
+      font-size: 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--cb-blue);
+      margin-bottom: 0.25rem;
+    }
+    .section-title span { color: var(--cb-red); }
+    .section-sub {
+      color: #555;
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .issue-card {
+      border: none;
+      border-top: 4px solid var(--cb-blue);
+      border-radius: 6px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      height: 100%;
+    }
+    .issue-card .icon {
+      font-size: 2rem;
+      color: var(--cb-blue);
+      margin-bottom: 0.75rem;
+    }
+    .issue-card h5 {
+      font-weight: 800;
+      color: var(--cb-blue);
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+    }
+    .issue-card p {
+      font-size: 0.9rem;
+      color: #444;
+      margin-bottom: 0;
+    }
+
+    /* ── QUOTE BAND ── */
+    .quote-band {
+      background: var(--cb-blue);
+      color: var(--cb-white);
+      padding: 60px 0;
+    }
+    .quote-band blockquote {
+      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-weight: 700;
+      font-style: italic;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .quote-band cite {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      font-style: normal;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--cb-red);
+      color: var(--cb-white);
+      padding: 60px 0;
+      text-align: center;
+    }
+    .cta-band h2 {
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .cta-band p { font-size: 1.05rem; opacity: 0.9; margin-bottom: 1.5rem; }
+    .btn-white-cb {
+      background: var(--cb-white);
+      color: var(--cb-red);
+      border: none;
+      padding: 0.75rem 2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-white-cb:hover { background: #f0f0f0; color: var(--cb-red); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--cb-black);
+      color: rgba(255,255,255,0.55);
+      padding: 32px 0;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--cb-white); }
+    footer .footer-name {
+      color: var(--cb-white);
+      font-weight: 800;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Cynthia Butler</a>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav.about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="issues.html" data-i18n="nav.issues">Issues</a></li>
+          <li class="nav-item"><a class="nav-link" href="get-involved.html" data-i18n="nav.get-involved">Get Involved</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="voting.html" data-i18n="nav.voting">Voting Info</a></li>
+          <li class="nav-item toggle-group ms-2">
+            <button id="theme-toggle" aria-label="Switch to dark mode"><i class="bi bi-moon-fill"></i></button>
+            <button id="lang-toggle" aria-label="Switch language">ES</button>
+          </li>
+          <li class="nav-item ms-2">
+            <a class="btn-primary-cb btn-glow btn-pulse" href="https://secure.actblue.com/donate/cynthia-butler-fl-75" target="_blank" rel="noopener" style="padding:0.4rem 1.2rem;font-size:0.82rem;" data-i18n="nav.donate">Donate</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <p class="hero-eyebrow" data-i18n="index.eyebrow">Florida House District 75 &mdash; November 3, 2026</p>
+          <h1><span data-i18n="index.hero-h1-a">A Voice for</span> <span data-i18n="index.hero-h1-span">District 75</span></h1>
+          <p class="hero-sub">
+            <!-- PLACEHOLDER: Replace with Cynthia's real tagline/one-liner after questionnaire -->
+            [Tagline coming soon — real, bold, and in Cynthia's own words.]
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="get-involved.html" class="btn-primary-cb" data-i18n="index.hero-cta-1">Get Involved</a>
+            <a href="about.html" class="btn-outline-cb" data-i18n="index.hero-cta-2">Meet Cynthia</a>
+          </div>
+        </div>
+        <div class="col-lg-5 d-flex justify-content-center">
+          <div class="hero-photo-placeholder">
+            <i class="bi bi-person-circle" style="font-size:4rem; margin-bottom:0.5rem;"></i>
+            <span>Cynthia's photo<br>goes here</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stripe"></div>
+
+  <!-- ISSUES PREVIEW -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="text-center">
+        <h2 class="section-title"><span data-i18n="index.issues-title-a">What</span> <span data-i18n="index.issues-title-b">Matters</span></h2>
+        <p class="section-sub"><!-- PLACEHOLDER: replace with district-specific intro after questionnaire --></p>
+      </div>
+      <div class="row g-4">
+        <!-- PLACEHOLDER cards — replace icons/titles/text after questionnaire responses -->
+        <div class="col-md-4">
+          <div class="issue-card">
+            <div class="icon"><i class="bi bi-house-heart"></i></div>
+            <h5 data-i18n="index.issue1-title">Housing &amp; Affordability</h5>
+            <p><!-- Cynthia's position goes here --></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="issue-card">
+            <div class="icon"><i class="bi bi-heart-pulse"></i></div>
+            <h5 data-i18n="index.issue2-title">Healthcare Access</h5>
+            <p><!-- Cynthia's position goes here --></p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="issue-card">
+            <div class="icon"><i class="bi bi-cloud-rain-heavy"></i></div>
+            <h5 data-i18n="index.issue3-title">Infrastructure &amp; Flooding</h5>
+            <p><!-- Cynthia's position goes here --></p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="issues.html" class="btn-primary-cb" data-i18n="index.see-all">See All Issues</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE BAND -->
+  <section class="quote-band">
+    <div class="container">
+      <blockquote>
+        <!-- PLACEHOLDER: Replace with Cynthia's most powerful quote from questionnaire -->
+        &ldquo;[Cynthia's story in her own words — why she's running, what she's fighting for.]&rdquo;
+        <cite data-i18n="index.quote-cite">&mdash; Cynthia Butler, Democrat, Florida House District 75</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container">
+      <h2 data-i18n="index.cta-h2">This Race Is Winnable</h2>
+      <p data-i18n="index.cta-p">With your help, we can flip District 75 and bring real representation to Sarasota and Charlotte Counties.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="get-involved.html" class="btn-white-cb" data-i18n="index.cta-volunteer">Volunteer</a>
+        <a href="get-involved.html#donate" class="btn-white-cb" style="background:var(--cb-blue);color:var(--cb-white);" data-i18n="index.cta-donate">Donate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-name">Cynthia Butler for Florida House District 75</div>
+      <p class="mb-1" data-i18n="footer.paid-for">Paid for by Cynthia Butler for Florida House District 75</p>
+      <p class="mb-2">
+        <!-- PLACEHOLDER: headquarters address from questionnaire -->
+        [Campaign HQ Address] &mdash; Sarasota / Charlotte County, FL
+      </p>
+      <div class="d-flex justify-content-center gap-3 mb-2">
+        <!-- PLACEHOLDER: social links from questionnaire — replace # with real URLs -->
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+      </div>
+      <p class="mb-0"><a href="contact.html" data-i18n="footer.contact">Contact</a> &middot; <a href="get-involved.html" data-i18n="footer.get-involved">Get Involved</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>
+/* This stops the website content from touching the edges of the screen */
+.wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+}

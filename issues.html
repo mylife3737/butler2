@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Issues &amp; Platform | Cynthia Butler for FL House District 75</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
+  <style>
+    :root {
+      --cb-blue:     #0d1b2e;
+      --cb-blue-mid: #1e3a5f;
+      --cb-red:      #2563eb;
+      --cb-black:    #111111;
+      --cb-white:    #ffffff;
+    }
+    body { font-family: 'Barlow', sans-serif; color: var(--cb-black); }
+    h1, h2, h3, h4, h5 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
+
+    /* ── NAV ── */
+    .navbar { background: var(--cb-blue) !important; border-bottom: 4px solid var(--cb-red); }
+    .navbar-brand { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1.6rem; letter-spacing: 0.06em; color: var(--cb-white) !important; }
+    .nav-link { color: rgba(255,255,255,0.85) !important; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.07em; }
+    .nav-link:hover { color: var(--cb-white) !important; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, var(--cb-blue) 60%, var(--cb-blue-mid) 100%);
+      color: var(--cb-white); padding: 60px 0 50px;
+      border-bottom: 5px solid var(--cb-red);
+    }
+    .page-header h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+    .page-header p { font-size: 1rem; opacity: 0.75; margin-bottom: 0; }
+
+    /* ── BUTTONS ── */
+    .btn-primary-cb {
+      background: var(--cb-red); color: var(--cb-white); border: none;
+      padding: 0.75rem 2rem; font-weight: 700; font-size: 1rem;
+      text-transform: uppercase; letter-spacing: 0.08em; border-radius: 4px;
+      text-decoration: none; display: inline-block; transition: background 0.2s;
+    }
+    .btn-primary-cb:hover { background: #1d4ed8; color: var(--cb-white); }
+
+    /* ── STRIPE ── */
+    .stripe { height: 6px; background: linear-gradient(to right, var(--cb-blue) 50%, var(--cb-red) 50%); }
+
+    /* ── SECTION LABEL ── */
+    .section-label { text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; font-weight: 700; color: var(--cb-red); margin-bottom: 0.25rem; }
+    .section-heading { font-size: 1.8rem; font-weight: 900; color: var(--cb-blue); margin-bottom: 0.5rem; }
+
+    /* ── ISSUE BLOCK ── */
+    .issue-block {
+      border-left: 5px solid var(--cb-blue);
+      padding: 1.5rem 1.5rem 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+      background: #f7f9fc;
+      border-radius: 0 6px 6px 0;
+    }
+    .issue-block.priority {
+      border-left-color: var(--cb-red);
+    }
+    .issue-block .issue-icon {
+      font-size: 2.2rem;
+      color: var(--cb-blue);
+      float: right;
+      margin-left: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .issue-block.priority .issue-icon { color: var(--cb-red); }
+    .issue-block h3 {
+      font-weight: 800; font-size: 1.15rem;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--cb-blue); margin-bottom: 0.25rem;
+    }
+    .issue-block.priority h3 { color: var(--cb-red); }
+    .issue-block .issue-badge {
+      display: inline-block; background: var(--cb-blue); color: var(--cb-white);
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; padding: 0.2rem 0.6rem; border-radius: 3px;
+      margin-bottom: 0.6rem;
+    }
+    .issue-block.priority .issue-badge { background: var(--cb-red); }
+    .issue-block p { font-size: 0.95rem; color: #444; margin-bottom: 0; }
+
+    /* ── ETHICS BAND ── */
+    .ethics-band {
+      background: var(--cb-blue); color: var(--cb-white); padding: 60px 0;
+    }
+    .ethics-band h2 { font-size: 1.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .ethics-card {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px; padding: 1.5rem; height: 100%;
+    }
+    .ethics-card h5 { font-weight: 800; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem; color: rgba(255,255,255,0.8); }
+    .ethics-card p { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-bottom: 0; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--cb-black); color: rgba(255,255,255,0.55); padding: 32px 0; font-size: 0.82rem; text-align: center; }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--cb-white); }
+    footer .footer-name { color: var(--cb-white); font-weight: 800; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Cynthia Butler</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav.about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="issues.html" data-i18n="nav.issues">Issues</a></li>
+          <li class="nav-item"><a class="nav-link" href="get-involved.html" data-i18n="nav.get-involved">Get Involved</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li class="nav-item toggle-group ms-2">
+            <button id="theme-toggle" aria-label="Switch to dark mode"><i class="bi bi-moon-fill"></i></button>
+            <button id="lang-toggle" aria-label="Switch language">ES</button>
+          </li>
+          <li class="nav-item ms-2">
+            <a class="btn-primary-cb" href="get-involved.html#donate" style="padding:0.4rem 1.2rem;font-size:0.82rem;" data-i18n="nav.donate">Donate</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <h1 data-i18n="issues.page-h1">Issues &amp; Platform</h1>
+      <p data-i18n="issues.page-p">Where Cynthia stands &mdash; and what she will fight for in Tallahassee.</p>
+    </div>
+  </div>
+
+  <div class="stripe"></div>
+
+  <!-- ISSUES SECTION -->
+  <section class="py-5">
+    <div class="container py-3">
+
+      <div class="row mb-4">
+        <div class="col-lg-8">
+          <p class="section-label" data-i18n="issues.label-platform">Platform</p>
+          <h2 class="section-heading" data-i18n="issues.heading-priorities">Cynthia's Top Priorities</h2>
+          <!-- PLACEHOLDER: replace with actual priorities from questionnaire Section 3 -->
+          <p class="text-muted fst-italic">
+            [Intro sentence from Cynthia about what drives her platform — from Section 3 of questionnaire.]
+          </p>
+        </div>
+      </div>
+
+      <!-- PRIORITY ISSUES — fill top 3 from questionnaire as "priority" blocks -->
+      <!-- PLACEHOLDER: The 3 blocks below are examples; replace with Cynthia's actual top 3 -->
+
+      <div class="issue-block priority">
+        <i class="bi bi-house-heart issue-icon"></i>
+        <span class="issue-badge" data-i18n="issues.badge-priority">Priority Issue</span>
+        <h3 data-i18n="issues.issue1-title">Housing &amp; Affordability</h3>
+        <!-- PLACEHOLDER: Cynthia's position from Section 3 -->
+        <p>[Cynthia's position and what she would do about housing affordability in District 75. From questionnaire Section 3.]</p>
+      </div>
+
+      <div class="issue-block priority">
+        <i class="bi bi-shield-heart issue-icon"></i>
+        <span class="issue-badge" data-i18n="issues.badge-priority">Priority Issue</span>
+        <h3 data-i18n="issues.issue2-title">Healthcare Access</h3>
+        <!-- PLACEHOLDER -->
+        <p>[Cynthia's position on healthcare access — what she believes and what she would do in Tallahassee. From questionnaire Section 3.]</p>
+      </div>
+
+      <div class="issue-block priority">
+        <i class="bi bi-cloud-rain-heavy issue-icon"></i>
+        <span class="issue-badge" data-i18n="issues.badge-priority">Priority Issue</span>
+        <h3 data-i18n="issues.issue3-title">Infrastructure &amp; Flooding</h3>
+        <!-- PLACEHOLDER -->
+        <p>[Cynthia's position on infrastructure investment and flood resilience. From questionnaire Section 3.]</p>
+      </div>
+
+      <!-- SECONDARY ISSUES — fill from questionnaire checklist selections -->
+      <hr class="my-4" />
+      <h3 class="section-heading" style="font-size:1.4rem;" data-i18n="issues.also-fighting">Also Fighting For</h3>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="issue-block mb-0">
+            <i class="bi bi-book issue-icon" style="font-size:1.6rem;"></i>
+            <span class="issue-badge" data-i18n="issues.badge-issue">Issue</span>
+            <h3 style="font-size:1rem;" data-i18n="issues.issue4-title">Public Education</h3>
+            <!-- PLACEHOLDER -->
+            <p>[Position — from Section 3 if selected]</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="issue-block mb-0">
+            <i class="bi bi-hurricane issue-icon" style="font-size:1.6rem;"></i>
+            <span class="issue-badge" data-i18n="issues.badge-issue">Issue</span>
+            <h3 style="font-size:1rem;" data-i18n="issues.issue5-title">Disaster Recovery &amp; Rebuilding</h3>
+            <!-- PLACEHOLDER -->
+            <p>[Position on rebuilding after hurricanes and storms — from Section 3 if selected]</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="issue-block mb-0">
+            <i class="bi bi-piggy-bank issue-icon" style="font-size:1.6rem;"></i>
+            <span class="issue-badge" data-i18n="issues.badge-issue">Issue</span>
+            <h3 style="font-size:1rem;" data-i18n="issues.issue6-title">Insurance Costs</h3>
+            <!-- PLACEHOLDER -->
+            <p>[Position — from Section 3 if selected]</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="issue-block mb-0">
+            <i class="bi bi-tree issue-icon" style="font-size:1.6rem;"></i>
+            <span class="issue-badge" data-i18n="issues.badge-issue">Issue</span>
+            <h3 style="font-size:1rem;" data-i18n="issues.issue7-title">Environment</h3>
+            <!-- PLACEHOLDER -->
+            <p>[Position — from Section 3 if selected]</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="issue-block mb-0">
+            <i class="bi bi-people issue-icon" style="font-size:1.6rem;"></i>
+            <span class="issue-badge" data-i18n="issues.badge-issue">Issue</span>
+            <h3 style="font-size:1rem;" data-i18n="issues.issue8-title">Underrepresented Communities</h3>
+            <!-- PLACEHOLDER -->
+            <p>[Position on underrepresented and oppressed communities — from Section 3 if selected]</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="issue-block mb-0">
+            <i class="bi bi-globe2 issue-icon" style="font-size:1.6rem;"></i>
+            <span class="issue-badge" data-i18n="issues.badge-issue">Issue</span>
+            <h3 style="font-size:1rem;" data-i18n="issues.issue9-title">Florida &amp; Foreign Policy</h3>
+            <!-- PLACEHOLDER -->
+            <p>[Position on bonds, investments, trade, and port policy affecting Florida — from Section 3 if selected]</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- What constituents care about / ignored issue -->
+      <div class="mt-5 row g-4">
+        <div class="col-md-6">
+          <div class="border-top-blue">
+            <p class="section-label" data-i18n="issues.label-community">Community Voice</p>
+            <h4 style="font-weight:800; color:var(--cb-blue);" data-i18n="issues.heading-voters">What Constituents Care Most About</h4>
+            <!-- PLACEHOLDER: from Section 3 -->
+            <p>[Cynthia's read on what District 75 voters care most about right now. From questionnaire Section 3.]</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="border-top-red">
+            <p class="section-label" style="color:var(--cb-red);" data-i18n="issues.label-ignored">Ignored by Leadership</p>
+            <h4 style="font-weight:800; color:var(--cb-red);" data-i18n="issues.heading-ignored">What No One Else Is Talking About</h4>
+            <!-- PLACEHOLDER: from Section 3 -->
+            <p>[The issue Cynthia says is being ignored by current leadership — and what she will do about it. From questionnaire Section 3.]</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CAMPAIGN FINANCE & ETHICS BAND -->
+  <section class="ethics-band">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 data-i18n="issues.ethics-h2">Transparency &amp; Ethics</h2>
+        <p style="opacity:0.75; max-width:560px; margin:auto;" data-i18n="issues.ethics-p">Cynthia believes voters deserve to know exactly who is funding her campaign — and who isn't.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="ethics-card">
+            <h5><i class="bi bi-slash-circle me-2"></i><span data-i18n="issues.pac-title">PAC Money</span></h5>
+            <!-- PLACEHOLDER: from Section 4 -->
+            <p>[Cynthia's policy on accepting PAC money. From questionnaire Section 4.]</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ethics-card">
+            <h5><i class="bi bi-building me-2"></i><span data-i18n="issues.corporate-title">Corporate Donations</span></h5>
+            <!-- PLACEHOLDER: from Section 4 -->
+            <p>[Cynthia's policy on corporate donations. From questionnaire Section 4.]</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="ethics-card">
+            <h5><i class="bi bi-check-circle me-2"></i><span data-i18n="issues.finance-title">Campaign Finance Reform</span></h5>
+            <!-- PLACEHOLDER: from Section 4 -->
+            <p>[Cynthia's position on campaign finance reform. From questionnaire Section 4.]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-name">Cynthia Butler for Florida House District 75</div>
+      <p class="mb-1" data-i18n="footer.paid-for">Paid for by Cynthia Butler for Florida House District 75</p>
+      <p class="mb-2">[Campaign HQ Address] &mdash; Sarasota / Charlotte County, FL</p>
+      <div class="d-flex justify-content-center gap-3 mb-2">
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+      </div>
+      <p class="mb-0"><a href="contact.html" data-i18n="footer.contact">Contact</a> &middot; <a href="get-involved.html" data-i18n="footer.get-involved">Get Involved</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Cynthia | Cynthia Butler for FL House District 75</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="site.css" />
+    <style>
+      :root {
+        --cb-blue: #0d1b2e;
+        --cb-blue-mid: #1e3a5f;
+        --cb-red: #2563eb;
+        --cb-black: #111111;
+        --cb-white: #ffffff;
+      }
+      body {
+        font-family: "Barlow", sans-serif;
+        color: var(--cb-black);
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 0.04em;
+      }
+
+      /* ── NAV ── */
+      .navbar {
+        background: var(--cb-blue) !important;
+        border-bottom: 4px solid var(--cb-red);
+      }
+      .navbar-brand {
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 400;
+        font-size: 1.6rem;
+        letter-spacing: 0.06em;
+        color: var(--cb-white) !important;
+      }
+      .nav-link {
+        color: rgba(255, 255, 255, 0.85) !important;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 0.07em;
+      }
+      .nav-link:hover {
+        color: var(--cb-white) !important;
+      }
+
+      /* ── PAGE HEADER ── */
+      .page-header {
+        background: linear-gradient(
+          135deg,
+          var(--cb-blue) 60%,
+          var(--cb-blue-mid) 100%
+        );
+        color: var(--cb-white);
+        padding: 60px 0 50px;
+        border-bottom: 5px solid var(--cb-red);
+      }
+      .page-header h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.25rem;
+      }
+      .page-header p {
+        font-size: 1rem;
+        opacity: 0.75;
+        margin-bottom: 0;
+      }
+
+      /* ── BUTTONS ── */
+      .btn-primary-cb {
+        background: var(--cb-red);
+        color: var(--cb-white);
+        border: none;
+        padding: 0.75rem 2rem;
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-block;
+        transition: background 0.2s;
+      }
+      .btn-primary-cb:hover {
+        background: #1d4ed8;
+        color: var(--cb-white);
+      }
+
+      /* ── PHOTO PLACEHOLDER ── */
+      .photo-placeholder {
+        width: 100%;
+        max-width: 380px;
+        aspect-ratio: 3/4;
+        background: #e8edf5;
+        border: 3px dashed #b0bcce;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #8899aa;
+        font-size: 0.9rem;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      /* ── STAT BOXES ── */
+      .stat-box {
+        border-left: 4px solid var(--cb-red);
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+        background: #f7f9fc;
+      }
+      .stat-box .label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #666;
+      }
+      .stat-box .value {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--cb-blue);
+      }
+
+      /* ── SECTION LABEL ── */
+      .section-label {
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--cb-red);
+        margin-bottom: 0.25rem;
+      }
+      .section-heading {
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: var(--cb-blue);
+        margin-bottom: 1rem;
+      }
+
+      /* ── STRIPE ── */
+      .stripe {
+        height: 6px;
+        background: linear-gradient(
+          to right,
+          var(--cb-blue) 50%,
+          var(--cb-red) 50%
+        );
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--cb-black);
+        color: rgba(255, 255, 255, 0.55);
+        padding: 32px 0;
+        font-size: 0.82rem;
+        text-align: center;
+      }
+      footer a {
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+      }
+      footer a:hover {
+        color: var(--cb-white);
+      }
+      footer .footer-name {
+        color: var(--cb-white);
+        font-weight: 800;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Cynthia Butler</a>
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto gap-2">
+            <li class="nav-item">
+              <a class="nav-link" href="about.html" data-i18n="nav.about"
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="issues.html" data-i18n="nav.issues"
+                >Issues</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="get-involved.html"
+                data-i18n="nav.get-involved"
+                >Get Involved</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html" data-i18n="nav.contact"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item toggle-group ms-2">
+              <button id="theme-toggle" aria-label="Switch to dark mode">
+                <i class="bi bi-moon-fill"></i>
+              </button>
+              <button id="lang-toggle" aria-label="Switch language">ES</button>
+            </li>
+            <li class="nav-item ms-2">
+              <a
+                class="btn-primary-cb"
+                href="get-involved.html#donate"
+                style="padding: 0.4rem 1.2rem; font-size: 0.82rem"
+                data-i18n="nav.donate"
+                >Donate</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="container">
+        <h1 data-i18n="about.page-h1">Meet Cynthia</h1>
+        <p data-i18n="about.page-p">
+          Democrat &mdash; Florida House District 75
+        </p>
+      </div>
+    </div>
+
+    <div class="stripe"></div>
+
+    <!-- MAIN BIO SECTION -->
+    <section class="py-5">
+      <div class="container py-3">
+        <div class="row g-5 align-items-start">
+          <!-- Photo -->
+          <div class="col-lg-4 text-center">
+            <div class="photo-placeholder mx-auto">
+              <i
+                class="bi bi-person-circle"
+                style="font-size: 4rem; margin-bottom: 0.5rem"
+              ></i>
+              <span>Cynthia's photo<br />goes here</span>
+            </div>
+
+            <!-- Fast facts -->
+            <div class="mt-4 text-start">
+              <div class="stat-box">
+                <div class="label" data-i18n="about.stat-district-label">
+                  District
+                </div>
+                <div class="value" data-i18n="about.stat-district-value">
+                  FL House District 75
+                </div>
+              </div>
+              <div class="stat-box">
+                <div class="label" data-i18n="about.stat-party-label">
+                  Party
+                </div>
+                <div class="value" data-i18n="about.stat-party-value">
+                  Democrat
+                </div>
+              </div>
+              <div class="stat-box">
+                <div class="label" data-i18n="about.stat-city-label">
+                  City / Neighborhood
+                </div>
+                <!-- PLACEHOLDER: fill from questionnaire -->
+                <div class="value">[City, FL]</div>
+              </div>
+              <div class="stat-box">
+                <div class="label" data-i18n="about.stat-years-label">
+                  Years in District
+                </div>
+                <!-- PLACEHOLDER: fill from questionnaire -->
+                <div class="value">[X years]</div>
+              </div>
+              <div class="stat-box">
+                <div class="label" data-i18n="about.stat-prof-label">
+                  Profession
+                </div>
+                <!-- PLACEHOLDER: fill from questionnaire -->
+                <div class="value">[Cynthia's background]</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio text -->
+          <div class="col-lg-8">
+            <p class="section-label" data-i18n="about.label-story">Her Story</p>
+            <h2 class="section-heading" data-i18n="about.heading-why">
+              Why Cynthia Is Running
+            </h2>
+
+            <!-- PLACEHOLDER: replace with Cynthia's real story from questionnaire -->
+            <p class="lead text-muted fst-italic mb-4">
+              [Cynthia's story in her own words — why she decided to run, what
+              she's seen in the district, and what she believes is at stake for
+              her neighbors. This comes from Section 2 of the questionnaire.]
+            </p>
+
+            <p class="section-label mt-4" data-i18n="about.label-personal">
+              Personal Connection
+            </p>
+            <h3
+              class="section-heading"
+              style="font-size: 1.3rem"
+              data-i18n="about.heading-rooted"
+            >
+              Rooted in District 75
+            </h3>
+            <!-- PLACEHOLDER -->
+            <p>
+              [What personal experience connects Cynthia to the voters of
+              District 75? This comes from questionnaire Section 2.]
+            </p>
+
+            <p class="section-label mt-4" data-i18n="about.label-about">
+              About Cynthia
+            </p>
+            <h3
+              class="section-heading"
+              style="font-size: 1.3rem"
+              data-i18n="about.heading-person"
+            >
+              The Person Behind the Candidate
+            </h3>
+            <!-- PLACEHOLDER -->
+            <p>
+              [What does Cynthia want voters to know about her as a person — not
+              a politician? From questionnaire Section 2.]
+            </p>
+
+            <p class="section-label mt-4" data-i18n="about.label-background">
+              Background
+            </p>
+            <h3
+              class="section-heading"
+              style="font-size: 1.3rem"
+              data-i18n="about.heading-experience"
+            >
+              Professional Experience
+            </h3>
+            <!-- PLACEHOLDER -->
+            <p>
+              [Cynthia's professional background. From questionnaire Section 2.]
+            </p>
+
+            <div class="mt-4 d-flex flex-wrap gap-3">
+              <a
+                href="issues.html"
+                class="btn-primary-cb"
+                data-i18n="about.btn-platform"
+                >See Her Platform</a
+              >
+              <a
+                href="get-involved.html"
+                class="btn-primary-cb"
+                style="background: var(--cb-blue)"
+                data-i18n="about.btn-involved"
+                >Get Involved</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CIVIC EXPERIENCE BAND -->
+    <section class="py-5 bg-surface">
+      <div class="container py-2">
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+            <p class="section-label" data-i18n="about.label-civic">
+              Civic Leadership
+            </p>
+            <h2 class="section-heading" data-i18n="about.heading-community">
+              Community Before Politics
+            </h2>
+            <!-- PLACEHOLDER: fill from questionnaire Section 5 -->
+            <p>
+              [Cynthia's civic experience — boards, committees, volunteering,
+              community roles. From questionnaire Section 5.]
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        <div class="footer-name">
+          Cynthia Butler for Florida House District 75
+        </div>
+        <p class="mb-1" data-i18n="footer.paid-for">
+          Paid for by Cynthia Butler for Florida House District 75
+        </p>
+        <p class="mb-2">
+          [Campaign HQ Address] &mdash; Sarasota / Charlotte County, FL
+        </p>
+        <div class="d-flex justify-content-center gap-3 mb-2">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="X / Twitter"
+            ><i class="bi bi-twitter-x"></i
+          ></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+        <p class="mb-0">
+          <a href="contact.html" data-i18n="footer.contact">Contact</a> &middot;
+          <a href="get-involved.html" data-i18n="footer.get-involved"
+            >Get Involved</a
+          >
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="site.js"></script>
+  </body>
+</html>

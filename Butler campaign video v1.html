@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cynthia Butler for Florida House District 75</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue: #1A4A8A;
+  --accent: #2255a4;
+  --black: #1A1A1A;
+  --charcoal: #111111;
+  --white: #FFFFFF;
+  --offwhite: #F5F5F5;
+  --gray: #888888;
+  --lightgray: #2A2A2A;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--charcoal);
+  color: var(--white);
+  overflow: hidden;
+}
+
+/* ── DECK ── */
+#deck {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  background: var(--black);
+}
+
+.slide.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── PROGRESS BAR ── */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--accent);
+  transition: width 0.4s ease;
+  z-index: 100;
+}
+
+/* ── NAV ── */
+#nav {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 100;
+}
+
+#slide-counter {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  color: var(--gray);
+  letter-spacing: 2px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.nav-btn {
+  background: none;
+  border: 1px solid #444;
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:hover { border-color: var(--accent); background: rgba(34,85,164,0.15); }
+
+/* ── SLIDE COMMON ── */
+.slide-inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 0.95;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(28px, 3.5vw, 48px);
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.accent { color: var(--accent); }
+.blue { color: #4A80C8; }
+
+p, li {
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(15px, 1.6vw, 20px);
+  line-height: 1.6;
+  color: #CCCCCC;
+}
+
+.divider {
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  margin: 20px 0;
+}
+
+/* ── SLIDE 1: TITLE ── */
+#slide-1 {
+  background: var(--black);
+  text-align: center;
+}
+
+#slide-1 .byline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 600;
+  color: var(--gray);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 32px;
+}
+
+#slide-1 .name {
+  color: var(--white);
+}
+
+#slide-1 .title-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+#slide-1 .accent-bar {
+  width: 80px;
+  height: 5px;
+  background: var(--accent);
+  margin: 32px auto;
+}
+
+/* ── STAT BOXES ── */
+.stat-row {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.stat-box {
+  flex: 1;
+  min-width: 200px;
+  background: var(--lightgray);
+  border-top: 3px solid var(--accent);
+  padding: 24px;
+  border-radius: 2px;
+}
+
+.stat-box .number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 5vw, 64px);
+  color: var(--accent);
+  display: block;
+  line-height: 1;
+}
+
+.stat-box .desc {
+  font-size: 14px;
+  color: #AAAAAA;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* ── QUESTION CARDS ── */
+.question-grid {
+  display: flex;
+  gap: 20px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+
+.question-chip {
+  background: var(--lightgray);
+  border-left: 4px solid var(--accent);
+  padding: 20px 24px;
+  flex: 1;
+  min-width: 200px;
+  border-radius: 2px;
+}
+
+.question-chip .q-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(15px, 1.6vw, 19px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.question-chip .q-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-top: 8px;
+  display: block;
+}
+
+/* ── TWO-COL LAYOUT ── */
+.asset-layout {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.asset-left { flex: 1; }
+
+.asset-right {
+  flex: 1;
+  background: var(--lightgray);
+  border-radius: 4px;
+  padding: 32px;
+  border-top: 4px solid var(--accent);
+}
+
+.asset-right .mock-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gray);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.mock-card {
+  background: #1E1E1E;
+  border-radius: 3px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+.mock-card .mc-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: var(--accent);
+  display: block;
+}
+
+.mock-card .mc-body {
+  font-size: 13px;
+  color: #AAAAAA;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.benefit-list {
+  margin-top: 28px;
+  list-style: none;
+}
+
+.benefit-list li {
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: #CCCCCC;
+  padding: 8px 0;
+  border-bottom: 1px solid #2A2A2A;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.benefit-list li::before {
+  content: '▸';
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── ACTION BOX ── */
+.action-layout {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.action-checklist {
+  flex: 1;
+  list-style: none;
+}
+
+.action-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #2A2A2A;
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: #CCCCCC;
+}
+
+.check-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(200,168,75,0.2);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 12px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.action-right {
+  flex: 0 0 340px;
+  background: var(--accent);
+  padding: 40px 32px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.action-right .big-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: rgba(0,0,0,0.6);
+  text-transform: uppercase;
+  display: block;
+}
+
+.action-right .big-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  color: var(--black);
+  line-height: 1;
+  display: block;
+  margin: 8px 0;
+}
+
+.action-right .action-desc {
+  font-size: 14px;
+  color: rgba(0,0,0,0.75);
+  line-height: 1.6;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+/* ── DONATE TIERS ── */
+.tier-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.tier {
+  flex: 1;
+  background: var(--lightgray);
+  border-radius: 3px;
+  padding: 32px 24px;
+  text-align: center;
+  border-top: 4px solid #444;
+  position: relative;
+}
+
+.tier.featured {
+  border-top-color: var(--accent);
+  background: #1E1E1E;
+}
+
+.tier .tier-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--white);
+  display: block;
+}
+
+.tier .tier-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  color: var(--accent);
+  display: block;
+  line-height: 1;
+  margin: 8px 0;
+}
+
+.tier .tier-desc {
+  font-size: 13px;
+  color: #AAAAAA;
+  line-height: 1.5;
+  margin-top: 12px;
+}
+
+.featured-badge {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  background: var(--accent);
+  color: var(--black);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 4px 12px;
+  text-transform: uppercase;
+}
+
+/* ── SLIDE 11: CTA ── */
+#slide-11 { text-align: center; }
+
+.cta-contact {
+  margin-top: 40px;
+  display: inline-block;
+}
+
+.cta-contact .contact-line {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(18px, 2.5vw, 26px);
+  color: #CCCCCC;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.cta-contact .contact-line span {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  padding: 18px 48px;
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cta-btn.primary {
+  background: var(--accent);
+  color: var(--black);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+/* ── VOICEOVER SCRIPT ── */
+#voiceover-script {
+  display: none;
+  background: #0A0A0A;
+  padding: 80px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#voiceover-script h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: var(--white);
+  margin-bottom: 48px;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 20px;
+}
+
+.script-block {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid #222;
+}
+
+.script-block .slide-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.script-block .slide-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--white);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.script-block .script-text {
+  font-family: 'Barlow', sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #BBBBBB;
+}
+
+.script-block .pause {
+  color: #555;
+  font-style: italic;
+  font-size: 14px;
+}
+
+#toggle-script {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.7);
+  border: 1px solid #444;
+  color: var(--white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 8px 16px;
+  cursor: pointer;
+  z-index: 200;
+  text-transform: uppercase;
+  transition: border-color 0.2s;
+}
+
+#toggle-script:hover { border-color: var(--accent); }
+</style>
+</head>
+<body>
+
+<button id="toggle-script" onclick="toggleScript()">Script ↓</button>
+<div id="progress"></div>
+
+<div id="deck">
+
+  <!-- SLIDE 1: TITLE -->
+  <div class="slide active" id="slide-1">
+    <div class="slide-inner" style="text-align:center;">
+      <div class="label">Florida House of Representatives · District 75 · 2026</div>
+      <h1>It's Time for<br><span class="accent">Someone</span><br>Like You.</h1>
+      <div class="accent-bar"></div>
+      <div class="byline">
+        <span class="name">Cynthia Butler</span>
+      </div>
+      <div class="title-tag">Democrat · Florida House District 75</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: THE PROBLEM -->
+  <div class="slide" id="slide-2">
+    <div class="slide-inner">
+      <div class="label">Why District 75 Needs a Change</div>
+      <h2>Same Party.<br><span class="accent">Same Results.</span></h2>
+      <div class="divider"></div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="number">10+</span>
+          <span class="desc">Consecutive years District 75 has been held by the same party — with no real competition</span>
+        </div>
+        <div class="stat-box">
+          <span class="number">DEM</span>
+          <span class="desc">Democrats are flipping seats across Florida — anti-incumbent energy is at a decade high</span>
+        </div>
+        <div class="stat-box">
+          <span class="number">$0</span>
+          <span class="desc">Amount a career politician risks when they vote party line instead of for your community</span>
+        </div>
+      </div>
+      <p style="margin-top:28px; color:#888;">The people of southern Sarasota and Charlotte County deserve a representative who answers to them — not to party bosses in Tallahassee.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: WHO IS CYNTHIA -->
+  <div class="slide" id="slide-3">
+    <div class="slide-inner">
+      <div class="asset-layout">
+        <div class="asset-left">
+          <div class="label">Meet the Candidate</div>
+          <h2><span class="accent">Not a Politician.</span><br>A Neighbor.</h2>
+          <div class="divider"></div>
+          <p>Cynthia Butler is a first-time candidate and a member of this community — not a career politician. She's running because she believes District 75 deserves a voice that actually belongs to District 75.</p>
+          <ul class="benefit-list">
+            <li>Born and raised in the community she wants to serve</li>
+            <li>No party machine. No special interest money. No script.</li>
+            <li>Running on one thing: what's actually best for the people here</li>
+            <li>The outsider voice District 75 has never had — until now</li>
+          </ul>
+        </div>
+        <div class="asset-right">
+          <span class="mock-label">In Her Own Words</span>
+          <div class="mock-card">
+            <span class="mc-title">Why I'm Running</span>
+            <div class="mc-body">"I'm not running because politics is my career. I'm running because this community deserves someone who actually lives here, shops here, and is affected by the same decisions everyone else is."</div>
+          </div>
+          <div class="mock-card">
+            <span class="mc-title">What Makes Her Different</span>
+            <div class="mc-body">No party loyalty to protect. No donors to pay back. Just a neighbor who is done waiting for someone else to step up.</div>
+          </div>
+          <div class="mock-card">
+            <span class="mc-title">District 75</span>
+            <div class="mc-body">Southern Sarasota County + Charlotte County · Port Charlotte area · Election: November 3, 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: PLATFORM — THE QUESTIONS -->
+  <div class="slide" id="slide-4">
+    <div class="slide-inner">
+      <div class="label">The Platform</div>
+      <h2>The Questions<br><span class="accent">Nobody Is Asking.</span></h2>
+      <div class="divider"></div>
+      <p>Cynthia's platform starts with the questions District 75 voters are already asking — but not getting answered.</p>
+      <div class="question-grid">
+        <div class="question-chip">
+          <div class="q-text">Why is the cost of living rising while local wages stay flat?</div>
+          <span class="q-tag">Affordability</span>
+        </div>
+        <div class="question-chip">
+          <div class="q-text">Why do Tallahassee insiders decide what's best for Port Charlotte?</div>
+          <span class="q-tag">Local Control</span>
+        </div>
+        <div class="question-chip">
+          <div class="q-text">Why does District 75 keep sending the same party and expecting different results?</div>
+          <span class="q-tag">Accountability</span>
+        </div>
+        <div class="question-chip">
+          <div class="q-text">Why is it so hard for small businesses here to compete and survive?</div>
+          <span class="q-tag">Local Economy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: PLATFORM — THE ANSWERS -->
+  <div class="slide" id="slide-5">
+    <div class="slide-inner">
+      <div class="asset-layout">
+        <div class="asset-left">
+          <div class="label">What Cynthia Stands For</div>
+          <h2>Community<br><span class="accent">First. Always.</span></h2>
+          <div class="divider"></div>
+          <p>Cynthia's positions aren't handed down by a party platform. They come from listening to the people of District 75.</p>
+          <ul class="benefit-list">
+            <li>Affordable housing and cost-of-living relief for working families</li>
+            <li>Support for local small businesses — not corporate interests</li>
+            <li>Government transparency — votes explained in plain language</li>
+            <li>Community input before Tallahassee decisions</li>
+            <li>A representative who shows up — to town halls, not just ballots</li>
+          </ul>
+        </div>
+        <div class="asset-right">
+          <span class="mock-label">Cynthia's Commitment</span>
+          <div class="mock-card">
+            <span class="mc-title">No Party Line Votes</span>
+            <div class="mc-body">Every vote explained publicly. No rubber-stamping. No party bosses telling her how to vote on your behalf.</div>
+          </div>
+          <div class="mock-card">
+            <span class="mc-title">Open Door Policy</span>
+            <div class="mc-body">Monthly town halls. Direct contact. Real access to your representative — not just a staffer.</div>
+          </div>
+          <div class="mock-card">
+            <span class="mc-title">District 75 First</span>
+            <div class="mc-body">Southern Sarasota and Charlotte County have been an afterthought for too long. That ends in 2026.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 6: WHY DEMOCRAT -->
+  <div class="slide" id="slide-6">
+    <div class="slide-inner">
+      <div class="label">Democratic Values</div>
+      <h2>For the People.<br><span class="accent">Of District 75.</span></h2>
+      <div class="divider"></div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="number" style="font-size:clamp(28px,3.5vw,48px); line-height:1.2;">YOU</span>
+          <span class="desc">The only special interest Cynthia represents. Working families. Not corporate donors. Not party bosses.</span>
+        </div>
+        <div class="stat-box">
+          <span class="number" style="font-size:clamp(28px,3.5vw,48px); line-height:1.2;">DEM</span>
+          <span class="desc">Democrats fight for affordable housing, healthcare access, and real representation — not talking points.</span>
+        </div>
+        <div class="stat-box">
+          <span class="number" style="font-size:clamp(28px,3.5vw,48px); line-height:1.2;">75</span>
+          <span class="desc">District 75 deserves a Democrat in Tallahassee who fights for this community every single day.</span>
+        </div>
+      </div>
+      <p style="margin-top:28px; color:#888;">Anti-incumbent energy is rising across Florida. District 75 can be the story everyone is watching on November 3, 2026.</p>
+    </div>
+  </div>
+
+  <!-- SLIDE 7: VOLUNTEER -->
+  <div class="slide" id="slide-7">
+    <div class="slide-inner">
+      <div class="label">Join the Campaign</div>
+      <h2>We Win This<br><span class="accent">Door by Door.</span></h2>
+      <div class="divider"></div>
+      <div class="action-layout">
+        <div>
+          <p style="margin-bottom:20px;">Cynthia can't out-spend the incumbent. She can out-show up. Every volunteer hour is worth more than any ad buy.</p>
+          <ul class="action-checklist">
+            <li><span class="check-icon">✓</span> Door-to-door canvassing in your neighborhood — we'll train you</li>
+            <li><span class="check-icon">✓</span> Phone and text banking — from your own home, on your schedule</li>
+            <li><span class="check-icon">✓</span> Yard signs, literature drops, and local events</li>
+            <li><span class="check-icon">✓</span> Social media sharing — the easiest hour you'll ever donate</li>
+            <li><span class="check-icon">✓</span> Host a neighbor coffee — Cynthia will come to you</li>
+          </ul>
+          <p style="margin-top:20px; font-size:14px; color:#666;">No experience needed. No party membership required. Just show up.</p>
+        </div>
+        <div class="action-right">
+          <span class="big-label">We Need</span>
+          <span class="big-text">You</span>
+          <p class="action-desc">Sign up to volunteer.<br>We'll reach out within<br>24 hours with next steps.<br><br>Text <strong>CYNTHIA</strong> to<br>[campaign number]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 8: DONATE -->
+  <div class="slide" id="slide-8">
+    <div class="slide-inner" style="text-align:center;">
+      <div class="label">Fund the Campaign</div>
+      <h2>Small Dollars.<br><span class="accent">Big Impact.</span></h2>
+      <div class="divider" style="margin:20px auto;"></div>
+      <p style="max-width:700px; margin:0 auto;">Cynthia is running this campaign on a grassroots budget under $25,000. Every dollar goes directly to reaching voters — not to consultants or party overhead.</p>
+      <div class="tier-row">
+        <div class="tier">
+          <span class="tier-name">Neighbor</span>
+          <span class="tier-price">$25</span>
+          <div class="tier-desc">
+            Covers the cost of door-knocking materials for one full precinct.<br><br>
+            <em style="color:#555; font-size:12px;">Most accessible starting point</em>
+          </div>
+        </div>
+        <div class="tier featured">
+          <div class="featured-badge">Most Impactful</div>
+          <span class="tier-name">Champion</span>
+          <span class="tier-price">$100</span>
+          <div class="tier-desc">
+            Funds a full weekend of canvassing — the highest-ROI activity in the campaign.<br><br>
+            <em style="color:#555; font-size:12px;">The sweet spot for grassroots campaigns</em>
+          </div>
+        </div>
+        <div class="tier">
+          <span class="tier-name">Founding Donor</span>
+          <span class="tier-price">$250</span>
+          <div class="tier-desc">
+            Covers printed materials, yard signs, and a full week of outreach.<br><br>
+            <em style="color:#555; font-size:12px;">Named in campaign donor roll</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 9: THE MATH -->
+  <div class="slide" id="slide-9">
+    <div class="slide-inner">
+      <div class="label">Why This Race Is Winnable</div>
+      <h2>The Path<br><span class="accent">to Victory.</span></h2>
+      <div class="divider"></div>
+      <div class="asset-layout">
+        <div class="asset-left">
+          <p>This is not a long shot. This is a math problem — and the math is in our favor.</p>
+          <ul class="benefit-list">
+            <li>Democrat and independent voters are the untapped majority in District 75</li>
+            <li>Disaffected Republicans are looking for permission to vote differently</li>
+            <li>Anti-incumbent energy is the highest it's been in a decade statewide</li>
+            <li>Danny Nix is a first-term real estate broker with no grassroots base</li>
+            <li>Cynthia's outsider identity IS the message — and it can't be faked</li>
+          </ul>
+          <p style="margin-top:20px; color:#888; font-size:15px;">A motivated ground team of 50 volunteers, 500 small donors, and one viral local moment can flip this district.</p>
+        </div>
+        <div class="asset-right">
+          <span class="mock-label">The Numbers</span>
+          <div class="mock-card">
+            <span class="mc-title">Target Voters</span>
+            <div class="mc-body">Democrat + persuadable independent and Republican voters in District 75 — the margin of victory is already there</div>
+          </div>
+          <div class="mock-card">
+            <span class="mc-title">What We Need to Win</span>
+            <div class="mc-body">50 active volunteers · 500 small donors · 5,000 doors knocked · 1 earned media moment</div>
+          </div>
+          <div class="mock-card">
+            <span class="mc-title">Election Day</span>
+            <div class="mc-body" style="color:var(--accent); font-family:'Bebas Neue',sans-serif; font-size:22px;">November 3, 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 10: ENDORSEMENT / SOCIAL PROOF -->
+  <div class="slide" id="slide-10">
+    <div class="slide-inner">
+      <div class="label">The Movement Is Growing</div>
+      <h2>Neighbors.<br><span class="accent">Not Politicians.</span></h2>
+      <div class="divider"></div>
+      <div class="action-layout">
+        <div>
+          <p style="margin-bottom:20px;">Every campaign that upsets the political establishment starts the same way — with a handful of people who decided enough is enough.</p>
+          <ul class="action-checklist">
+            <li><span class="check-icon">★</span> Share Cynthia's story on Facebook and NextDoor — it reaches more voters than any ad</li>
+            <li><span class="check-icon">★</span> Put a yard sign up — visibility changes minds before a single word is spoken</li>
+            <li><span class="check-icon">★</span> Tell one neighbor — word of mouth is the most trusted channel in local politics</li>
+            <li><span class="check-icon">★</span> Bring a friend to a town hall — community events build the credibility no ad can buy</li>
+            <li><span class="check-icon">★</span> Write a letter to the Charlotte Sun or Sarasota Herald-Tribune</li>
+          </ul>
+          <p style="margin-top:20px; font-size:14px; color:#666;">Every action compounds. Every voice multiplies. This is how grassroots campaigns win.</p>
+        </div>
+        <div class="action-right">
+          <span class="big-label">Spread the</span>
+          <span class="big-text">Word</span>
+          <p class="action-desc">Follow & share:<br><br>Facebook · Instagram<br>NextDoor · X<br><br><strong>@CynthiaButlerFL</strong><br><br>#District75 #CynthiaButler</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 11: CTA -->
+  <div class="slide" id="slide-11">
+    <div class="slide-inner" style="text-align:center;">
+      <div class="label">November 3, 2026 · District 75</div>
+      <h1>Your Voice.<br><span class="accent">Your Vote.</span><br>Your District.</h1>
+      <div class="accent-bar" style="width:80px; height:5px; background:var(--accent); margin:32px auto;"></div>
+      <div class="cta-contact">
+        <div class="contact-line">Cynthia Butler — <span>Democrat, FL House District 75</span></div>
+        <div class="contact-line" style="margin-top:6px;">📧 <span>[campaign@email.com]</span></div>
+        <div class="contact-line" style="margin-top:6px;">📞 <span>[campaign phone number]</span></div>
+        <div class="contact-line" style="margin-top:6px;">🌐 <span>[campaign website]</span></div>
+      </div>
+      <div class="cta-buttons">
+        <div class="cta-btn primary">Volunteer Now</div>
+        <div class="cta-btn secondary">Donate Today</div>
+      </div>
+      <p style="margin-top:32px; font-size:13px; color:#555;">Fighting for District 75. Because this community deserves a Democrat who actually shows up.</p>
+    </div>
+  </div>
+
+</div><!-- /deck -->
+
+<div id="nav">
+  <button class="nav-btn" id="prev-btn" onclick="prevSlide()">&#8592;</button>
+  <div id="slide-counter">1 / 11</div>
+  <button class="nav-btn" id="next-btn" onclick="nextSlide()">&#8594;</button>
+</div>
+
+<!-- VOICEOVER SCRIPT -->
+<div id="voiceover-script">
+  <h2>Campaign Video Script</h2>
+
+  <div class="script-block">
+    <span class="slide-num">Slide 1 — Voiceover</span>
+    <span class="slide-title">Title</span>
+    <div class="script-text">
+      What if your state representative actually lived like you do? <span class="pause">[pause]</span>
+      Paid bills like you do. Drove these roads, used these schools, cared about this community — not because it's their district on a map, but because it's their home. <span class="pause">[pause]</span>
+      My name is Cynthia Butler. I'm running for Florida House District 75 as a Democrat — rooted in this community, answerable only to you. <span class="pause">[pause]</span>
+      Just a neighbor who believes it's time for someone like you in Tallahassee.
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="slide-num">Slide 2 — Voiceover</span>
+    <span class="slide-title">The Problem</span>
+    <div class="script-text">
+      District 75 has been held by the same party for over a decade. <span class="pause">[pause]</span>
+      And in that time — the cost of living has gone up, local voices have been ignored, and the representation in Tallahassee has answered to party leadership, not to this community. <span class="pause">[pause]</span>
+      Democrats and independents across Florida are ready to hold Republicans accountable. People are done with the same party and the same results. <span class="pause">[pause]</span>
+      They're ready to pick someone who actually fights for them.
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="slide-num">Slide 3 — Voiceover</span>
+    <span class="slide-title">Who Is Cynthia</span>
+    <div class="script-text">
+      I am not a career politician. <span class="pause">[pause]</span>
+      I don't have a donor network to pay back. I don't have a party line to protect. <span class="pause">[pause]</span>
+      What I have is a deep connection to this community — and a belief that the people of southern Sarasota County and Charlotte County deserve a representative who actually lives among them. <span class="pause">[pause]</span>
+      That's why I'm running.
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="slide-num">Slide 4 — Voiceover</span>
+    <span class="slide-title">Platform — The Questions</span>
+    <div class="script-text">
+      My platform starts with the questions voters here are already asking — but not getting answered. <span class="pause">[pause]</span>
+      Why is the cost of living rising while local wages stay flat? <span class="pause">[pause]</span>
+      Why do Tallahassee insiders get to decide what's best for Port Charlotte? <span class="pause">[pause]</span>
+      Why does District 75 keep sending the same party and expecting different results? <span class="pause">[pause]</span>
+      And why is it so hard for small businesses here to compete? <span class="pause">[pause]</span>
+      These aren't rhetorical questions. They're the reason I'm in this race.
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="slide-num">Slide 5 — Voiceover</span>
+    <span class="slide-title">Platform — The Answers</span>
+    <div class="script-text">
+      Here's what I stand for. <span class="pause">[pause]</span>
+      Affordable housing and real cost-of-living relief for working families — not talking points, actual policy. <span class="pause">[pause]</span>
+      Support for local small businesses over corporate interests. <span class="pause">[pause]</span>
+      Government transparency — every vote I take will be explained in plain language, publicly, with no spin. <span class="pause">[pause]</span>
+      Community input before any Tallahassee decision that affects this district. <span class="pause">[pause]</span>
+      And a representative who actually shows up — to town halls, not just ballots.
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="slide-num">Slide 6 — Voiceover</span>
+    <span class="slide-title">Why Democrat</span>
+    <div class="script-text">
+      I'm running as a Democrat — and I'm proud of that. Because Democrats fight for working people. <span class="pause">[pause]</span>
+      Affordable housing. Healthcare access. Real representation in Tallahassee. <span class="pause">[pause]</span>
+      Not talking points — actual policy that helps the people of this district. <span class="pause">[pause]</span>
+      Anti-incumbent energy is the highest it's been in Florida in a decade. <span class="pause">[pause]</span>
+      District 75 can be the story everyone is watching on November third.
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="slide-num">Slide 7 — Voiceover</span>
+    <span class="slide-title">Volunteer</span>
+    <div class="script-text">
+      I can't out-spend the incumbent. But I can out-show up. <span class="pause">[pause]</span>
+      And that means I need you. <span class="pause">[pause]</span>
+      Knock doors with me on a Saturday morning. Make calls from your kitchen table on a Tuesday night. Put a yard sign in your yard. Share this video with one neighbor. <span class="pause">[pause]</span>
+      Every hour you give is worth more than any ad buy. <span class="pause">[pause]</span>
+      Text CYNTHIA to our campaign number and we'll reach out within twenty-four hours with exactly how you can help.
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="slide-num">Slide 8 — Voiceover</span>
+    <span class="slide-title">Donate</span>
+    <div class="script-text">
+      This campaign runs on small dollars from real people — not PACs, not lobbyists. <span class="pause">[pause]</span>
+      Twenty-five dollars covers door-knocking materials for an entire precinct. <span class="pause">[pause]</span>
+      A hundred dollars funds a full weekend of canvassing — the single highest-ROI activity in any campaign. <span class="pause">[pause]</span>
+      Two-fifty covers a full week of outreach — yard signs, literature, and everything needed to reach voters. <span class="pause">[pause]</span>
+      Every dollar goes directly to reaching voters. Not to consultants. Not to overhead.
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="slide-num">Slide 9 — Voiceover</span>
+    <span class="slide-title">Why This Race Is Winnable</span>
+    <div class="script-text">
+      Let me tell you why this race is actually winnable. <span class="pause">[pause]</span>
+      Democrats and independents in District 75 are ready to vote for real change. And disaffected Republicans are looking for permission to vote differently. And the incumbent — a first-term real estate broker — has no grassroots base. <span class="pause">[pause]</span>
+      This isn't a long shot. This is a math problem. <span class="pause">[pause]</span>
+      Fifty volunteers. Five hundred donors. Five thousand doors knocked. One earned media moment. <span class="pause">[pause]</span>
+      That's what wins a race like this. And we can do every one of those things together.
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="slide-num">Slide 10 — Voiceover</span>
+    <span class="slide-title">Spread the Word</span>
+    <div class="script-text">
+      Every grassroots campaign that upsets the political establishment starts the same way. <span class="pause">[pause]</span>
+      A handful of people who decided — enough is enough. <span class="pause">[pause]</span>
+      Share this on Facebook and NextDoor. Put a yard sign up. Tell one neighbor. Bring someone to a town hall. Write a letter to the Charlotte Sun. <span class="pause">[pause]</span>
+      Every action compounds. Every voice multiplies. <span class="pause">[pause]</span>
+      Follow us at Cynthia Butler FL across every platform. Hashtag District 75.
+    </div>
+  </div>
+
+  <div class="script-block">
+    <span class="slide-num">Slide 11 — Voiceover</span>
+    <span class="slide-title">Call to Action</span>
+    <div class="script-text">
+      November third, 2026. <span class="pause">[pause]</span>
+      District 75 gets to decide whether it keeps sending the same party to Tallahassee — or whether it sends a neighbor. <span class="pause">[pause]</span>
+      Your voice. Your vote. Your district. <span class="pause">[pause]</span>
+      Volunteer. Donate. Share. Show up. <span class="pause">[pause]</span>
+      Let's build something that actually belongs to this community. Together.
+    </div>
+  </div>
+
+</div><!-- /voiceover-script -->
+
+<script>
+const TOTAL = 11;
+let current = 1;
+
+function showSlide(n) {
+  document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById('slide-' + n);
+  if (target) target.classList.add('active');
+  document.getElementById('slide-counter').textContent = n + ' / ' + TOTAL;
+  document.getElementById('progress').style.width = ((n / TOTAL) * 100) + '%';
+  current = n;
+}
+
+function nextSlide() {
+  if (current < TOTAL) showSlide(current + 1);
+}
+
+function prevSlide() {
+  if (current > 1) showSlide(current - 1);
+}
+
+function toggleScript() {
+  const script = document.getElementById('voiceover-script');
+  const btn = document.getElementById('toggle-script');
+  const isHidden = script.style.display === 'none' || script.style.display === '';
+  if (isHidden) {
+    script.style.display = 'block';
+    document.body.style.overflow = 'auto';
+    btn.textContent = 'Slides ↑';
+    script.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    script.style.display = 'none';
+    document.body.style.overflow = 'hidden';
+    btn.textContent = 'Script ↓';
+    window.scrollTo(0, 0);
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (document.body.style.overflow === 'auto') return;
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSlide();
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSlide();
+});
+
+showSlide(1);
+</script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Cynthia Butler for FL House District 75</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="site.css" />
+  <style>
+    :root {
+      --cb-blue:     #0d1b2e;
+      --cb-blue-mid: #1e3a5f;
+      --cb-red:      #2563eb;
+      --cb-black:    #111111;
+      --cb-white:    #ffffff;
+    }
+    body { font-family: 'Barlow', sans-serif; color: var(--cb-black); }
+    h1, h2, h3, h4, h5 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
+
+    /* ── NAV ── */
+    .navbar { background: var(--cb-blue) !important; border-bottom: 4px solid var(--cb-red); }
+    .navbar-brand { font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 1.6rem; letter-spacing: 0.06em; color: var(--cb-white) !important; }
+    .nav-link { color: rgba(255,255,255,0.85) !important; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.07em; }
+    .nav-link:hover { color: var(--cb-white) !important; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: linear-gradient(135deg, var(--cb-blue) 60%, var(--cb-blue-mid) 100%);
+      color: var(--cb-white); padding: 60px 0 50px;
+      border-bottom: 5px solid var(--cb-red);
+    }
+    .page-header h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+    .page-header p { font-size: 1rem; opacity: 0.75; margin-bottom: 0; }
+
+    /* ── STRIPE ── */
+    .stripe { height: 6px; background: linear-gradient(to right, var(--cb-blue) 50%, var(--cb-red) 50%); }
+
+    /* ── FORM ── */
+    .section-label { text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; font-weight: 700; color: var(--cb-red); margin-bottom: 0.25rem; }
+    .section-heading { font-size: 1.8rem; font-weight: 900; color: var(--cb-blue); margin-bottom: 0.5rem; }
+    .form-label { font-weight: 600; font-size: 0.9rem; color: var(--cb-blue); }
+    .form-control:focus { border-color: var(--cb-blue); box-shadow: 0 0 0 0.2rem rgba(26,58,107,0.2); }
+
+    /* ── BUTTONS ── */
+    .btn-blue-cb {
+      background: var(--cb-blue); color: var(--cb-white); border: none;
+      padding: 0.75rem 2.5rem; font-weight: 700; font-size: 1rem;
+      text-transform: uppercase; letter-spacing: 0.08em; border-radius: 4px;
+      text-decoration: none; display: inline-block; transition: background 0.2s;
+    }
+    .btn-blue-cb:hover { background: #122d55; color: var(--cb-white); }
+    .btn-primary-cb {
+      background: var(--cb-red); color: var(--cb-white); border: none;
+      padding: 0.75rem 2rem; font-weight: 700; font-size: 1rem;
+      text-transform: uppercase; letter-spacing: 0.08em; border-radius: 4px;
+      text-decoration: none; display: inline-block; transition: background 0.2s;
+    }
+    .btn-primary-cb:hover { background: #1d4ed8; color: var(--cb-white); }
+
+    /* ── CONTACT INFO CARD ── */
+    .contact-info-card {
+      background: var(--cb-blue); color: var(--cb-white);
+      border-radius: 8px; padding: 2rem; height: 100%;
+    }
+    .contact-info-card h3 { font-weight: 800; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.5rem; }
+    .contact-row { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1.25rem; font-size: 0.95rem; }
+    .contact-row .ci-icon { font-size: 1.2rem; color: var(--cb-red); flex-shrink: 0; margin-top: 0.1rem; }
+    .contact-row a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .contact-row a:hover { color: var(--cb-white); }
+    .social-row { display: flex; gap: 1rem; margin-top: 1.5rem; }
+    .social-row a { color: rgba(255,255,255,0.65); font-size: 1.5rem; transition: color 0.15s; }
+    .social-row a:hover { color: var(--cb-white); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--cb-black); color: rgba(255,255,255,0.55); padding: 32px 0; font-size: 0.82rem; text-align: center; }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--cb-white); }
+    footer .footer-name { color: var(--cb-white); font-weight: 800; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Cynthia Butler</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto gap-2">
+          <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav.about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="issues.html" data-i18n="nav.issues">Issues</a></li>
+          <li class="nav-item"><a class="nav-link" href="get-involved.html" data-i18n="nav.get-involved">Get Involved</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          <li class="nav-item toggle-group ms-2">
+            <button id="theme-toggle" aria-label="Switch to dark mode"><i class="bi bi-moon-fill"></i></button>
+            <button id="lang-toggle" aria-label="Switch language">ES</button>
+          </li>
+          <li class="nav-item ms-2">
+            <a class="btn-primary-cb" href="get-involved.html#donate" style="padding:0.4rem 1.2rem;font-size:0.82rem;" data-i18n="nav.donate">Donate</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container">
+      <h1 data-i18n="contact.page-h1">Contact</h1>
+      <p data-i18n="contact.page-p">Reach out to the campaign — we'd love to hear from you.</p>
+    </div>
+  </div>
+
+  <div class="stripe"></div>
+
+  <!-- CONTACT SECTION -->
+  <section class="py-5">
+    <div class="container py-3">
+      <div class="row g-5">
+
+        <!-- CONTACT FORM -->
+        <div class="col-lg-7">
+          <p class="section-label" data-i18n="contact.lbl-send">Send a Message</p>
+          <h2 class="section-heading" data-i18n="contact.heading-touch">Get in Touch</h2>
+          <p class="text-muted mb-4" data-i18n="contact.form-intro">Have a question, media inquiry, or want to connect? We'll get back to you as soon as possible.</p>
+
+          <!-- Netlify Form -->
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="d-none">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label class="form-label" for="c-first" data-i18n="contact.lbl-first">First Name *</label>
+                <input type="text" class="form-control" id="c-first" name="first_name" required />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="c-last" data-i18n="contact.lbl-last">Last Name *</label>
+                <input type="text" class="form-control" id="c-last" name="last_name" required />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="c-email" data-i18n="contact.lbl-email">Email *</label>
+                <input type="email" class="form-control" id="c-email" name="email" required />
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label" for="c-phone" data-i18n="contact.lbl-phone">Phone</label>
+                <input type="tel" class="form-control" id="c-phone" name="phone" />
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="c-subject" data-i18n="contact.lbl-subject">Subject</label>
+                <select class="form-select" id="c-subject" name="subject">
+                  <option value="" data-i18n="contact.opt-select">Select a topic...</option>
+                  <option data-i18n="contact.opt-general">General question</option>
+                  <option data-i18n="contact.opt-media">Media / press inquiry</option>
+                  <option data-i18n="contact.opt-endorse">Endorsement</option>
+                  <option data-i18n="contact.opt-event">Event invitation</option>
+                  <option data-i18n="contact.opt-volunteer">Volunteer coordination</option>
+                  <option data-i18n="contact.opt-other">Other</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label" for="c-message" data-i18n="contact.lbl-msg">Message *</label>
+                <textarea class="form-control" id="c-message" name="message" rows="5" required></textarea>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-blue-cb" data-i18n="contact.btn-send">Send Message</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- CONTACT INFO -->
+        <div class="col-lg-5">
+          <div class="contact-info-card">
+            <h3 data-i18n="contact.info-h3">Campaign Info</h3>
+
+            <div class="contact-row">
+              <i class="bi bi-geo-alt-fill ci-icon"></i>
+              <div>
+                <!-- PLACEHOLDER: fill from questionnaire Section 1 -->
+                <strong data-i18n="contact.info-hq">Headquarters</strong><br>
+                [Campaign HQ or mailing address]<br>
+                Sarasota / Charlotte County, FL
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <i class="bi bi-envelope-fill ci-icon"></i>
+              <div>
+                <strong data-i18n="contact.info-email">Email</strong><br>
+                <!-- PLACEHOLDER: fill from questionnaire Section 1 -->
+                <a href="mailto:[campaign@email.com]">[campaign@email.com]</a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <i class="bi bi-telephone-fill ci-icon"></i>
+              <div>
+                <strong data-i18n="contact.info-phone">Phone</strong><br>
+                <!-- PLACEHOLDER: fill from questionnaire -->
+                <a href="tel:+1xxxxxxxxxx">[Campaign phone]</a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <i class="bi bi-calendar-event ci-icon"></i>
+              <div>
+                <strong data-i18n="contact.info-election">Election Day</strong><br>
+                <span data-i18n="contact.election-date">November 3, 2026</span><br>
+                <span style="font-size:0.85rem; opacity:0.7;" data-i18n="contact.district">Florida House District 75</span>
+              </div>
+            </div>
+
+            <!-- Social links — PLACEHOLDER: replace # with real URLs from questionnaire -->
+            <div class="social-row">
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+
+            <div class="mt-4 pt-3" style="border-top:1px solid rgba(255,255,255,0.15);">
+              <p style="font-size:0.8rem; opacity:0.6; margin-bottom:0;" data-i18n="contact.media-note">
+                <strong>Media inquiries:</strong> Contact us via the form and select "Media / press inquiry" — we respond within 24 hours.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-name">Cynthia Butler for Florida House District 75</div>
+      <p class="mb-1" data-i18n="footer.paid-for">Paid for by Cynthia Butler for Florida House District 75</p>
+      <p class="mb-2">[Campaign HQ Address] &mdash; Sarasota / Charlotte County, FL</p>
+      <div class="d-flex justify-content-center gap-3 mb-2">
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+      </div>
+      <p class="mb-0"><a href="contact.html" data-i18n="footer.contact">Contact</a> &middot; <a href="get-involved.html" data-i18n="footer.get-involved">Get Involved</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>

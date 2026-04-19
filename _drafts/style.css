@@ -1,0 +1,115 @@
+/* ============================================================
+   site.css — Cynthia Butler (Full Light/Dark UI)
+   ============================================================ */
+
+/* ── 1. CORE VARIABLES ── */
+:root {
+  --cb-blue:     #0d1b2e; /* Deep Navy */
+  --cb-blue-mid: #1e3a5f;
+  --cb-red:      #d71920; /* PROPER Campaign Red */
+  --cb-black:    #111111;
+  --cb-white:    #ffffff;
+  --cb-gray:     #f4f6f9;
+}
+
+/* ── 2. BASE LIGHT MODE STYLES (The "De-Blander") ── */
+body {
+  background-color: var(--cb-white);
+  color: var(--cb-black);
+  line-height: 1.6;
+}
+
+.section-title { color: var(--cb-blue); font-weight: 900; }
+.section-sub { color: #555; }
+
+/* Issue Cards - Light Mode */
+.issue-card {
+  background: white;
+  border-top: 5px solid var(--cb-blue);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+.issue-card:hover { transform: translateY(-5px); }
+.issue-card h5 { color: var(--cb-blue); font-weight: 800; }
+
+/* ── 3. DARK MODE OVERRIDES (Your Original Logic) ── */
+[data-theme="dark"] body {
+  background-color: #080e18;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .bg-surface { background: #0d1b2e !important; }
+[data-theme="dark"] .issue-card {
+  background-color: #111d30;
+  border-top-color: var(--cb-red); /* Red accent in dark mode */
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .issue-card h5 { color: #7ab4f5; }
+[data-theme="dark"] .section-sub,
+[data-theme="dark"] .issue-card p { color: #94a3b8 !important; }
+
+/* ── 4. NAVBAR & TOGGLES ── */
+.navbar {
+  background: var(--cb-blue) !important;
+  border-bottom: 4px solid var(--cb-red);
+}
+
+.navbar-brand { 
+  font-size: 2.1rem !important; 
+  font-family: 'Bebas Neue', sans-serif;
+  color: white !important;
+}
+
+.nav-item.toggle-group { display: flex; align-items: center; gap: 0.4rem; }
+
+#theme-toggle, #lang-toggle {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.85);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#theme-toggle:hover, #lang-toggle:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+/* ── 5. BUTTONS & GLOW ── */
+.btn-primary-cb {
+  background: var(--cb-red);
+  color: white;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.75rem 2rem;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-glow {
+  box-shadow: 0 0 14px rgba(215, 25, 32, 0.4);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(215, 25, 32, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(215, 25, 32, 0.8); }
+}
+.btn-pulse { animation: pulse-glow 2.2s ease-in-out infinite; }
+
+/* ── 6. UTILITIES ── */
+.stripe {
+  height: 8px;
+  background: linear-gradient(to right, var(--cb-blue) 50%, var(--cb-red) 50%);
+}
+
+.hero-photo-placeholder {
+  border: 3px dashed rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  min-height: 400px;
+}
